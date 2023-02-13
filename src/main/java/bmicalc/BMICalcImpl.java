@@ -3,6 +3,11 @@ package bmicalc;
 public class BMICalcImpl implements BMICalc {
 
 	public double bmi(double mass, double height) {
+		if(mass==0 || height==0 ) {
+			throw new ArithmeticException("No puede haber valores negativos");
+		}else if( mass<0 || height <0) {
+			throw new IllegalArgumentException("No pueden ser valores negativos");
+		}
 		double result = (mass)/(Math.pow(height,2));
 		return result;
 	}
