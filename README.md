@@ -14,5 +14,7 @@ A biomedical calculator for the body mass index (BMI) and other
 8. Comprobar que devuelve True si eres hombre y estas por encima de 90 cm
 9. Comprobar que devuelve False si eres mujer y estas por debajo de 80 cm
 10. Comprobar que devuelve True si eres mujer y estas por encima de 80 cmparameters.
+11. Comprobar que pasa si en el método de categoria el valor de bmi es poco realista
+12. Comprobar qué pasa en el metodo que calcula el bmi si el valor de los parámetros es negativo
 
 
