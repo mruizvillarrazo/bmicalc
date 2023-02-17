@@ -16,5 +16,7 @@ A biomedical calculator for the body mass index (BMI) and other
 10. Comprobar que devuelve True si eres mujer y estas por encima de 80 cmparameters.
 11. Comprobar que pasa si en el método de categoria el valor de bmi es poco realista
 12. Comprobar qué pasa en el metodo que calcula el bmi si el valor de los parámetros es negativo
+13. Comprobar que el objeto creado para los tests no sea nulo
+14. Comprobar que los métodos acaben sus tareas en un cierto tiempo.
 
 
