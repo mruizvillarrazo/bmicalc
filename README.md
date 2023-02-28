@@ -20,25 +20,25 @@ Actor Principal: Sistema.
 + Garantías mínimas: Se sabe que aún estando mal los parámetros introducidos, el programa imprimirá aunque sea un mensaje de error en vez que que no haya ningún feedback.
 
 + Garantías de éxito: 
-+ + Usuario: Hombre introduce los parámetros
-+ + Sistema: Recibe los parámetros y los introduce en el método.
-+ + Sistema: El método checkea que los parámetros están correctos.
-+ + Sistema: Mediante condicionales se estudia si los datos del usuario corresponden a los de una persona obesa o no.
-+ + Sistema: Imprime un booleano correspondiente a estar o no obeso.
-+ + Usuario: Visualiza la información resultante.
+  + Usuario: Hombre introduce los parámetros
+  + Sistema: Recibe los parámetros y los introduce en el método.
+  + Sistema: El método checkea que los parámetros están correctos.
+  + Sistema: Mediante condicionales se estudia si los datos del usuario corresponden a los de una persona obesa o no.
+  + Sistema: Imprime un booleano correspondiente a estar o no obeso.
+  + Usuario: Visualiza la información resultante.
 
 + Escenario alternativo:
-+ + Usuario: Usuario mujer introduce los parámetros
-+ + Sistema: Recibe los parámetros y los introduce en el método.
-+ + Sistema: El método checkea que los parámetros están correctos.
-+ + Sistema: En este caso al no tratarse de un hombre el concional deberá mirár otras condiciones para determinar si hay obesidad o no
-+ + Sistema: Imprime un booleano correspondiente a estar o no obeso.
-+ + Usuario: Visualiza la información resultante.
+  + Usuario: Usuario mujer introduce los parámetros
+  + Sistema: Recibe los parámetros y los introduce en el método.
+  + Sistema: El método checkea que los parámetros están correctos.
+  + Sistema: En este caso al no tratarse de un hombre el concional deberá mirár otras condiciones para determinar si hay obesidad o no
+  + Sistema: Imprime un booleano correspondiente a estar o no obeso.
+  + Usuario: Visualiza la información resultante.
 
 + Extensiones:
-+ + Puede pasar que haya un error interno porque el programa se haya bugueado.
-+ + Durante los milisegundos de ejecución del programa puede darse que la máquina se apague por un apagón y no se pueda realizar nada.
-+ + El usuario puede equivocarse introduciendo los datos y tiene que volver al inicio del proceso.
+  + Puede pasar que haya un error interno porque el programa se haya bugueado.
+  + Durante los milisegundos de ejecución del programa puede darse que la máquina se apague por un apagón y no se pueda realizar nada.
+  + El usuario puede equivocarse introduciendo los datos y tiene que volver al inicio del proceso.
 
 ## Posibles tests
 1. Comprobar que a la hora de calcular el BMI lo que pasaria si se divide entre 0
