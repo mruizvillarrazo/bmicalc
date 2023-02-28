@@ -2,6 +2,14 @@
 <br />
 
 
+
+
+<br />
+<br />
+
+# BMI calculator
+A biomedical calculator for the body mass index (BMI) and other 
+
 ![Diagrama UML][https://github.com/mruizvillarrazo/bmicalc/blob/main/doc/DiagramaUML.png]
 <br />
 <br />
@@ -39,12 +47,6 @@ Extensiones:
 1a. Puede pasar que haya un error interno porque el programa se haya bugueado.
 2a. Durante los milisegundos de ejecución del programa puede darse que la máquina se apague por un apagón y no se pueda realizar nada.
 3a. El usuario puede equivocarse introduciendo los datos y tiene que volver al inicio del proceso.
-
-<br />
-<br />
-
-# BMI calculator
-A biomedical calculator for the body mass index (BMI) and other 
 
 ## Posibles tests
 1. Comprobar que a la hora de calcular el BMI lo que pasaria si se divide entre 0
