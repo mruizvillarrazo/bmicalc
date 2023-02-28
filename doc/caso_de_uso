@@ -1,28 +1,33 @@
-Checkear obesidad
-Primary Actor: Sistema
-Goal in Context: Requestor buys something through the system, gets it. Does not include paying
-for it.
-Scope: Business - The overall purchasing mechanism, electronic and non-electronic, as seen
-by the people in the company.
-Level: Summary
-Stakeholders and Interests:
-Requestor: wants what he/she ordered, easy way to do that.
-Company: wants to control spending but allow needed purchases.
-Vendor: wants to get paid for any goods delivered.
-Precondition: none
-Minimal guarantees: Every order sent out has been approved by a valid authorizer. Order was
-tracked so that company can only be billed for valid goods received.
-Success guarantees: Requestor has goods, correct budget ready to be debited.
-Trigger: Requestor decides to buy something.
-Main success scenario:
-1. Requestor: initiate a request
-2. Approver: check money in the budget, check price of goods, complete request for submission
-3. Buyer: check contents of storage, find best vendor for goods
-4. Authorizer: validate Approver’s signature
-5. Buyer: complete request for ordering, initiate PO with Vendor
-6. Vendor: deliver goods to Receiving, get receipt for delivery (out of scope of system under
-design)
-7. Receiver: register delivery, send goods to Requestor
-8. Requestor: mark request delivered.
-Extensions:
-1a. Requestor does not know vendor or price: leave those parts blank and continue.
+Nombre: Checkear obesidad
+Actor Principal: Sistema.
+
+Ámbito: El usuario quiere saber si según ciertos parámetros padece de obesidad o no.
+
+Nivel: Subfunción.
+
+Stakeholders e Intereses: Usuario, ya sea profesor o alumno.
+
+Precondition: El usuario debe introducir todos los parámetros necesarios.
+
+Garantías mínimas: Se sabe que aún estando mal los parámetros introducidos, el programa imprimirá aunque sea un mensaje de error en vez que que no haya ningún feedback.
+
+Garantías de éxito: 
+1. Usuario: Hombre introduce los parámetros
+2. Sistema: Recibe los parámetros y los introduce en el método.
+3. Sistema: El método checkea que los parámetros están correctos.
+4. Sistema: Mediante condicionales se estudia si los datos del usuario corresponden a los de una persona obesa o no.
+5. Sistema: Imprime un booleano correspondiente a estar o no obeso.
+6. Usuario: Visualiza la información resultante.
+
+Escenario alternativo:
+1. Usuario: Usuario mujer introduce los parámetros
+2. Sistema: Recibe los parámetros y los introduce en el método.
+3. Sistema: El método checkea que los parámetros están correctos.
+4. Sistema: En este caso al no tratarse de un hombre el concional deberá mirár otras condiciones para determinar si hay obesidad o no
+5. Sistema: Imprime un booleano correspondiente a estar o no obeso.
+6. Usuario: Visualiza la información resultante.
+
+Extensiones:
+1a. Puede pasar que haya un error interno porque el programa se haya bugueado.
+2a. Durante los milisegundos de ejecución del programa puede darse que la máquina se apague por un apagón y no se pueda realizar nada.
+3a. El usuario puede equivocarse introduciendo los datos y tiene que volver al inicio del proceso.
