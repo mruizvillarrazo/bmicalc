@@ -25,26 +25,15 @@ Feature: Clasificar el IMC
   Para determinar su riesgo de ciertas condiciones de salud.
 
 	@Tag1
-  Scenario: Clasificar un IMC en la categoría "BAJO PESO"
+  Scenario: Clasificar un IMC en la categoría <categoria>"BAJO PESO"
     Given el un BMI de <values_BMI>
     When quiero comprobar el valor inferior
     Then debo obtener un resultado de <status>
 
-	@Tag2
-  Scenario: Clasificar un IMC en la categoría "NORMAL"
-    Given un BMI de <values_BMI>
-    When compruebo el segundo intervalo del metodo
-    Then debo obtener un resultado de <status>
 
-	@Tag3
-  Scenario: Clasificar un IMC en la categoría "OBESO"
-    Given un BMI de <values_BMI>
-    When comrpuebo su intervalo superior
-    Then debo obtener un resultado de <status>
-
-Examples: 
-      | name  | values_BMI | status       |
-      | name1 |  17        | "BAJO PESO"  |
-      | name2 |  23.1      | "NORMAL"     |
-      | name3 |  33        | "OBESO"      |
+					Examples: 
+	 categoria    | values_BMI | status       |
+	 "BAJO PESO"  |  17        | "BAJO PESO"  |
+	 "NORMAL"     |  23.1      | "NORMAL"     |
+	 "OBESIDAD"   |  33        | "OBESO"      |
 

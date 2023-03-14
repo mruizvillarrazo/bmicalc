@@ -1,27 +1,20 @@
 package bmicalc;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTimeout;
 
 import java.time.Duration;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class BMICalcTest {
 	
 	private BMICalcImpl calculadora = new BMICalcImpl();	
-	
-	//Se comprueba inicialmente de que el objeto calculadora no sea nulo
-	@Test
-	@DisplayName("Comprobar si el objeto es nulos")
-	public void valoresNulos() {
-		assertNotNull(calculadora);
-	}
+
 	
 	
 	
@@ -132,10 +125,10 @@ public class BMICalcTest {
 	@DisplayName("Comprobando obesidad")
     public void abdObsesityTest1() {
 
-        assertTrue(calculadora.abdominalObesity(99,'M'));
-        assertTrue(calculadora.abdominalObesity(81,'F'));
-        assertFalse(calculadora.abdominalObesity(77,'M'));
-        assertFalse(calculadora.abdominalObesity(65,'M'));
+        Assertions.assertTrue(calculadora.abdominalObesity(99,'M'));
+        Assertions.assertTrue(calculadora.abdominalObesity(81,'F'));
+        Assertions.assertFalse(calculadora.abdominalObesity(77,'M'));
+        Assertions.assertFalse(calculadora.abdominalObesity(65,'M'));
 
 
 
