@@ -31,6 +31,7 @@ As a médico,
 Quiero clasificar el IMC de un paciente en una categoría para determinar su riesgo de ciertas condiciones de salud.
 
 <br />
+
 #### Criterios de Aceptación:
 
 ##### Scenario 1:
@@ -49,6 +50,7 @@ When determino su categoría
 Then debo obtener un resultado de "OBESO"
 
 <br />
+
 ### Historia de Usuario 3
 As a investigador de la salud,
 Quiero verificar si una persona tiene obesidad abdominal basándome en su circunferencia de cintura y género.
@@ -74,6 +76,7 @@ Then debo obtener una excepción IllegalArgumentException con el mensaje "Argume
 <br />
 <br />
 <br />
+
 ## Especicifación del caso de uso
 Nombre: Checkear obesidad
 Actor Principal: Sistema.
