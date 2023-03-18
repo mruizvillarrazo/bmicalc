@@ -25,18 +25,16 @@ Feature: Calcular el IMC
   Quiero calcular el IMC de mis clientes
   Para hacer un seguimiento de su progreso con el tiempo y ajustar su plan de fitness en consecuencia.
 
-	@Tag1
-  Scenario: Calcular el IMC con valores válidos
+  @Tag1
+  Scenario: Calcular el IMC con valores validos
     Given una persona con una masa de 70 kg y una altura de 1.7 m
     When calculo su IMC
     Then debo obtener un resultado de 24.22
 
-	@Tag2
-  Scenario: Intentar calcular el IMC con valores inválidos
-    Given unos datos erroneos
-    When introduzco masa 0 kg y algura 1.61 m
+  @Tag2
+  Scenario: Intentar calcular el IMC con valores invalidos
+    Given una persona con una masa de 0 kg y altura 1.61 m
+    When intento calcular su IMC
     Then debo obtener una excepción "No puede ser 0"
-
-
 
 

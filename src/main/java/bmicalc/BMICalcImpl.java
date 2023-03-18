@@ -24,10 +24,10 @@ public class BMICalcImpl implements BMICalc {
 			cat="UNDERWEIGHT";
 		}else if (bmi>18.5 && bmi<24.9) {
 			cat="NORMAL";
-		}else if(bmi>25.0 && bmi<29.9) {
+		}else if(bmi>25.0 && bmi<=29.9) {
 			cat="OVERWEIGHT";
 		}else {
-			cat="OBSESE";
+			cat="OBESE";
 		}
 		return cat;
 	}

@@ -99,7 +99,7 @@ public class BMICalcTest {
 	@Test
 	@DisplayName("Comprobar intervalos 4")
     public void intervalos4() {
-		assertEquals("OBSESE", calculadora.category(35));
+		assertEquals("OBESE", calculadora.category(35));
     }
 	
 	//Para el método category nos aseguramos que saltan las excepciones con valores
