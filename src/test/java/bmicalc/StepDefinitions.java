@@ -66,4 +66,19 @@ public class StepDefinitions {
 	//Feature 2
 	//-----------------------------------------------------------------------------------------------
 	
+	@Given("un paciente con un peso de 90kg y una altura de {int}.8m")
+	public void un_paciente_con_un_peso_de_90kg_y_una_altura_de_8m(Integer int1) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	@Then("el resultado obtenido es de {double}")
+	public void el_resultado_obtenido_es_de(Double double1) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	@Then("la categoría correspondiente es {string}")
+	public void la_categoría_correspondiente_es(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
 }
