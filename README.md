@@ -5,6 +5,75 @@ A biomedical calculator for the body mass index (BMI) and other
 ![Diagrama UML](https://github.com/mruizvillarrazo/bmicalc/blob/main/doc/DiagramaUML.png)
 <br />
 <br />
+
+## User Stories:   
+<br />
+
+### Historia de Usuario 1
+As a entrenador de fitness,
+Quiero calcular el IMC de mis clientes para hacer un seguimiento de su progreso con el tiempo y ajustar su plan de fitness en consecuencia.
+
+#### Criterios de Aceptación:
+
+##### Scenario 1:
+Given a cliente con una masa de 70 kg y una altura de 1.7 m
+When calculo su IMC
+Then debo obtener un resultado de 24.22
+
+##### Scenario 2:
+Given a cliente con una masa de 0 kg y una altura de 1.7 m
+When intento calcular su IMC
+Then debo obtener una excepción 
+
+
+### Historia de Usuario 2
+As a médico,
+Quiero clasificar el IMC de un paciente en una categoría para determinar su riesgo de ciertas condiciones de salud.
+
+<br />
+#### Criterios de Aceptación:
+
+##### Scenario 1:
+Given un IMC de 18.4
+When determino su categoría
+Then debo obtener un resultado de "BAJO PESO"
+
+##### Scenario 2:
+Given un IMC de 24.9
+When determino su categoría
+Then debo obtener un resultado de "NORMAL"
+
+##### Scenario 3:
+Given un IMC de 30.0
+When determino su categoría
+Then debo obtener un resultado de "OBESO"
+
+<br />
+### Historia de Usuario 3
+As a investigador de la salud,
+Quiero verificar si una persona tiene obesidad abdominal basándome en su circunferencia de cintura y género.
+
+#### Criterios de Aceptación:
+
+##### Scenario 1:
+Given un hombre con una circunferencia de cintura de 80 cm
+When verifico si tiene obesidad abdominal
+Then debo obtener un resultado de false
+
+##### Scenario 2:
+Given una mujer con una circunferencia de cintura de 90 cm
+When verifico si tiene obesidad abdominal
+Then debo obtener un resultado de true
+
+##### Scenario 3:
+Given un género que no es 'M' o 'F'
+When intento verificar la obesidad abdominal
+Then debo obtener una excepción IllegalArgumentException con el mensaje "Argumento incorrecto"
+
+
+<br />
+<br />
+<br />
 ## Especicifación del caso de uso
 Nombre: Checkear obesidad
 Actor Principal: Sistema.
