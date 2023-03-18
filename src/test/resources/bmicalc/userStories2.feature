@@ -1,3 +1,5 @@
+
+      
 #Author: your.email@your.domain.com
 #Keywords Summary :
 #Feature: List of scenarios.
@@ -25,15 +27,14 @@ Feature: Clasificar el IMC
   Para determinar su riesgo de ciertas condiciones de salud.
 
 	@Tag1
-  Scenario: Clasificar un IMC en la categoría <categoria>"BAJO PESO"
-    Given el un BMI de <values_BMI>
-    When quiero comprobar el valor inferior
+  Scenario Outline: Clasificar un IMC en la categoría 
+    Given un BMI de <values>
+    When quiero ver si la persona es <name>
     Then debo obtener un resultado de <status>
-
-
-					Examples: 
-	 categoria    | values_BMI | status       |
-	 "BAJO PESO"  |  17        | "BAJO PESO"  |
-	 "NORMAL"     |  23.1      | "NORMAL"     |
-	 "OBESIDAD"   |  33        | "OBESO"      |
+    
+Examples: 
+      | values       |    name     |         status    |
+      |     17       |    Delgada  |         BAJO PESO |
+      |     23.1     |    Normal   |         NORMAL    |
+      |     33       |    Obeso    |         OBESIDAD    |
 

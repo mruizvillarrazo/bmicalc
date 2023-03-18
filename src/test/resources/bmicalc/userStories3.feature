@@ -26,12 +26,12 @@ Feature: Verificar obesidad abdominal
 	@Tag1
   Scenario: Verificar la obesidad abdominal en un hombre sin obesidad
     Given un hombre con una circunferencia de cintura de 80 cm
-    When verifico si tiene obesidad abdominal
+    When verifico si es obeso
     Then debo obtener un resultado de false
 	@Tag2
   Scenario: Verificar la obesidad abdominal en una mujer con obesidad
     Given una mujer con una circunferencia de cintura de 90 cm
-    When verifico si tiene obesidad abdominal
+    When verifico si es obesa
     Then debo obtener un resultado de true
 
 	@Tag3

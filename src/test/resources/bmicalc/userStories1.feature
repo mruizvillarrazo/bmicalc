@@ -33,8 +33,8 @@ Feature: Calcular el IMC
 
 	@Tag2
   Scenario: Intentar calcular el IMC con valores inválidos
-    Given una persona con una masa de 0 kg y una altura de 1.7 m
-    When intento calcular su IMC
+    Given unos datos erroneos
+    When introduzco masa 0 kg y algura 1.61 m
     Then debo obtener una excepción "No puede ser 0"
 
 
