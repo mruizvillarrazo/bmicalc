@@ -12,7 +12,7 @@ Then debo obtener un resultado de 24.22
 Scenario 2:
 Given a cliente con una masa de 0 kg y una altura de 1.7 m
 When intento calcular su IMC
-Then debo obtener una excepción ArithmeticException con el mensaje "No puede ser 0"
+Then debo obtener una excepción 
 
 Historia de Usuario 2
 As a médico,
