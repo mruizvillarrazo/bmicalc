@@ -35,6 +35,6 @@ Feature: Calcular el IMC
   Scenario: Intentar calcular el IMC con valores invalidos
     Given una persona con una masa de 0 kg y altura 1.61 m
     When intento calcular su IMC
-    Then debo obtener una excepción "No puede ser 0"
+    Then debo obtener una excepción 
 
 

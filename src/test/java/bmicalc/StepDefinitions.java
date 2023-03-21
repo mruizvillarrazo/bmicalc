@@ -1,7 +1,4 @@
 package bmicalc;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import org.junit.jupiter.api.Assertions;
 
 import io.cucumber.java.Before;
@@ -15,17 +12,17 @@ public class StepDefinitions {
 	
 	private double masa;
 	private double altura;
-	private double resultadoBMI;
+	private Double resultadoBMI;
 	private BMICalcImpl bmi;
-	private String category;
+	private boolean hayExcepcion;
 	
 	@Before
 	public void inicialization() {
 		masa=0;
 		altura=0;
-		resultadoBMI=0;
+		resultadoBMI=null;
 		bmi=null;
-		category=null;
+
 		
 	}
 
@@ -33,52 +30,45 @@ public class StepDefinitions {
 	//-----------------------------------------------------------------------------------------------
 	@Given("una persona con una masa de {int} kg y una altura de {double} m")
 	public void una_persona_con_una_masa_de_kg_y_una_altura_de_m(Integer int1, Double double1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		this.masa=int1;
+		this.altura=double1;
+	    
 	}
 	@When("calculo su IMC")
 	public void calculo_su_imc() {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		bmi=new BMICalcImpl();
+	    resultadoBMI=bmi.bmi(masa, altura);
 	}
+	
+	
 	@Then("debo obtener un resultado de {double}")
 	public void debo_obtener_un_resultado_de(Double double1) {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    Assertions.assertEquals(double1, Math.round(resultadoBMI*100.0)/100.0);
 	}
 	
 	@Given("una persona con una masa de {int} kg y altura {double} m")
 	public void una_persona_con_una_masa_de_kg_y_altura_m(Integer int1, Double double1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		this.masa=int1;
+		this.altura=double1;
 	}
 	@When("intento calcular su IMC")
 	public void intento_calcular_su_imc() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    try {
+	    	bmi=new BMICalcImpl();
+		    resultadoBMI=bmi.bmi(masa, altura);
+	    }catch(ArithmeticException e) {
+	    	hayExcepcion=true;
+	    }
 	}
-	@Then("debo obtener una excepción {string}")
-	public void debo_obtener_una_excepción(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("debo obtener una excepción")
+	public void debo_obtener_una_excepción() {
+	    Assertions.assertTrue(hayExcepcion);
 	}
 	
 	//Feature 2
 	//-----------------------------------------------------------------------------------------------
 	
-	@Given("un paciente con un peso de 90kg y una altura de {int}.8m")
-	public void un_paciente_con_un_peso_de_90kg_y_una_altura_de_8m(Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	@Then("el resultado obtenido es de {double}")
-	public void el_resultado_obtenido_es_de(Double double1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	@Then("la categoría correspondiente es {string}")
-	public void la_categoría_correspondiente_es(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
+
 }
