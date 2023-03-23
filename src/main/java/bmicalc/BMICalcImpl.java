@@ -34,7 +34,7 @@ public class BMICalcImpl implements BMICalc {
 
 	public boolean abdominalObesity(double waistCircumference, char gender) {
 		boolean estar=false;
-		if(gender!='M' && gender!='F') {
+		if(gender!='M' && gender!='F' && waistCircumference==0) {
 			throw new IllegalArgumentException("Argumento incorrecto");
 		}
 		if((gender=='M' && waistCircumference>90)||(gender=='F' && waistCircumference>80)){
