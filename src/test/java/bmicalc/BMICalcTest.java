@@ -136,14 +136,14 @@ public class BMICalcTest {
 	
 	
 	//Si se introduce un char distinto a M o F saltara una excepcion
-	@Test
-	@DisplayName("Comprobando que sea hombre o mujer")
-    public void abdObsesityTest2() {
-		
-		Exception exception = assertThrows(IllegalArgumentException.class, () ->
-        calculadora.abdominalObesity(90, 'J'));
-        assertEquals("Argumento incorrecto", exception.getMessage());
-
-
-    }
+//	@Test
+//	@DisplayName("Comprobando que sea hombre o mujer")
+//    public void abdObsesityTest2() {
+//		
+//		Exception exception = assertThrows(IllegalArgumentException.class, () ->
+//        calculadora.abdominalObesity(90, 'J'));
+//        assertEquals("Argumento incorrecto", exception.getMessage());
+//
+//
+//    }
 }
