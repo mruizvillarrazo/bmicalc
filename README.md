@@ -1,6 +1,19 @@
 
 # BMI calculator
+
 A biomedical calculator for the body mass index (BMI) and other 
+
+<br />
+<br />
+
+![Boceto Interfaz](https://github.com/mruizvillarrazo/bmicalc/blob/main/doc/boceto_interfaz.png)
+
+<br />
+
+
+![Interfaz Calculadora](https://github.com/mruizvillarrazo/bmicalc/blob/main/doc/interfaz_windowBuilder.png)
+
+<br />
 
 ![Diagrama UML](https://github.com/mruizvillarrazo/bmicalc/blob/main/doc/DiagramaUML.png)
 <br />
