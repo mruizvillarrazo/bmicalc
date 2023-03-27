@@ -44,8 +44,11 @@ public class BMIControlador implements ActionListener {
 	        	
 	        	bmi_calc = bmi.bmi(peso, altura);
 	        	category_calc = bmi.category(bmi_calc);
-	        	if((category_calc=="OBESE" && genero=='M' && cintura<90) || (category_calc=="OBESE" && genero=='F' && cintura<80)) {
+	        	if(( category_calc=="OBESE" && genero=='M' && cintura<90) || (category_calc=="OBESE" && genero=='F' && cintura<80)) {
 	        		throw new RuntimeException("No tienen sentido estos valores");
+	        	}else if((bmi_calc<=29.9 && category_calc!="OBESE" && cintura<=90 && genero=='M')
+	        			|| (bmi_calc<=29.9 && category_calc!="OBESE" && cintura<=80 && genero=='F')) {
+	        		throw new RuntimeException("No tiene sentido esta combinacion de valores");
 	        	}
 	        	obesity_calc = bmi.abdominalObesity(cintura,genero);
 	        	if(obesity_calc==true) {
