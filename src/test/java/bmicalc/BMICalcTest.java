@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 public class BMICalcTest {
 	
-	private BMICalcImpl calculadora = new BMICalcImpl();	
+	private BMICalcImpl calculadora = BMICalcImpl.getInstancia();	
 
 	
 	
