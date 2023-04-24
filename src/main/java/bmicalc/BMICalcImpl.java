@@ -1,6 +1,26 @@
 package bmicalc;
 
-public class BMICalcImpl implements BMICalc {
+import java.util.HashMap;
+import java.util.Map;
+
+public class BMICalcImpl implements BMICalc, IMCHospital{
+	
+	@Override
+	public Map<Double, String> imc(double altura, double peso) {
+		Double bmi_valor=bmi(altura, peso); 
+		String categ= category(bmi_valor);
+		Map<Double, String> res = new HashMap<Double, String>();
+		res.put(bmi_valor, categ);
+		
+		return res;
+	}
+	
+	@Override
+	public boolean tieneObesidadAbdominal(char genero, double circunferencia) {
+		boolean tenerOb = abdominalObesity(circunferencia, genero);
+		// TODO Auto-generated method stub
+		return tenerOb;
+	}
 	
 	private static BMICalcImpl bmiC;
 	
