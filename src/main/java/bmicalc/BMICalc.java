@@ -35,4 +35,9 @@ public interface BMICalc {
 	 * @return						True if the person has abdominal obesity, false otherwise.
 	 */
 	public boolean abdominalObesity(double waistCircumference, char gender);
+	
+	public  double alturaMedia();
+	public double pesoMedio();
+	public double imcMedio();
+	public int numPacientes();
 }

@@ -2,7 +2,7 @@ package bmicalc;
 
 import java.util.Map;
 
-public class Adapter implements IMCHospital{
+public class HospitalAdapter implements IMCHospital{
 	
 	private BMICalcImpl calculadora = BMICalcImpl.getInstancia();
 

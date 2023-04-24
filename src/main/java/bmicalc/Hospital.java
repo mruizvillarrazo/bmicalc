@@ -3,13 +3,9 @@ package bmicalc;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BMICalcImpl implements BMICalc, IMCHospital, IMCStats{
+public class Hospital {
 	
 	
-	
-
-	
-	@Override
 	public Map<Double, String> imc(double altura, double peso) {
 		Double bmi_valor=bmi(altura, peso); 
 		String categ= category(bmi_valor);
@@ -19,25 +15,15 @@ public class BMICalcImpl implements BMICalc, IMCHospital, IMCStats{
 		return res;
 	}
 	
-	@Override
 	public boolean tieneObesidadAbdominal(char genero, double circunferencia) {
 		boolean tenerOb = abdominalObesity(circunferencia, genero);
 		// TODO Auto-generated method stub
 		return tenerOb;
 	}
 	
-	private static BMICalcImpl bmiC;
 	
-	private BMICalcImpl() {
-		bmiC = new BMICalcImpl();
-	}
 	
-	public static BMICalcImpl getInstancia() {
-		if(bmiC==null) {
-			bmiC = new BMICalcImpl();
-		}
-		return bmiC;
-	}
+	
 
 	public double bmi(double mass, double height) {
 		if(mass==0 || height==0 ) {
@@ -79,29 +65,4 @@ public class BMICalcImpl implements BMICalc, IMCHospital, IMCStats{
 		}
 		return estar;
 	}
-
-	@Override
-	public double alturaMedia() {
-		double mediaAltura= alturaMedia();
-		return mediaAltura;
-	}
-
-	@Override
-	public double pesoMedio() {
-		double mediaPeso = pesoMedio();
-		return mediaPeso;
-	}
-
-	@Override
-	public double imcMedio() {
-		double mediaIMC = imcMedio();
-		return mediaIMC;
-	}
-
-	@Override
-	public int numPacientes() {
-		int numPacientes = numPacientes();
-		return numPacientes;
-	}
-
 }
