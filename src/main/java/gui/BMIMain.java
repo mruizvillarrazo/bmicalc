@@ -11,7 +11,7 @@ public class BMIMain {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BMICalcImpl model = new BMICalcImpl();
+					BMICalcImpl model = BMICalcImpl.getInstancia();
 					BMIVista vista = new BMIVista();
 					vista.setVisible(true);;
 					BMIControlador controller = new BMIControlador(model, vista);

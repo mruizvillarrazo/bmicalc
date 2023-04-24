@@ -24,7 +24,7 @@ public class BMIControlador implements ActionListener {
 	        double peso = vista.getMasa();
 	        double cintura = vista.getCintura();
 	        char genero = vista.getGenero();
-	        bmi=new BMICalcImpl();
+	        bmi=BMICalcImpl.getInstancia();
 	        
 	        
 	        double bmi_calc ;

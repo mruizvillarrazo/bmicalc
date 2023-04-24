@@ -37,7 +37,7 @@ public class StepDefinitions {
 	@When("calculo su IMC")
 	public void calculo_su_imc() {
 	    // Write code here that turns the phrase above into concrete actions
-		bmi=new BMICalcImpl();
+		bmi=BMICalcImpl.getInstancia();
 	    resultadoBMI=bmi.bmi(masa, altura);
 	}
 	
@@ -56,7 +56,7 @@ public class StepDefinitions {
 	@When("intento calcular su IMC")
 	public void intento_calcular_su_imc() {
 	    try {
-	    	bmi=new BMICalcImpl();
+	    	bmi=BMICalcImpl.getInstancia();
 		    resultadoBMI=bmi.bmi(masa, altura);
 	    }catch(ArithmeticException e) {
 	    	hayExcepcion=true;
