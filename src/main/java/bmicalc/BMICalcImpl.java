@@ -3,7 +3,8 @@ package bmicalc;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BMICalcImpl implements BMICalc, IMCHospital, IMCStats{
+public class BMICalcImpl implements BMICalc, IMCHospital, IMCStats, Estrategia{
+	
 	
 	
 	
@@ -102,6 +103,19 @@ public class BMICalcImpl implements BMICalc, IMCHospital, IMCStats{
 	public int numPacientes() {
 		int numPacientes = numPacientes();
 		return numPacientes;
+	}
+
+	@Override
+	public String imcCalc(double altura, double peso) {
+		if(peso==0 || altura==0 ) {
+			throw new ArithmeticException("No puede ser 0");
+		}else if( peso<0 || altura <0) {
+			throw new IllegalArgumentException("No pueden ser valores negativos");
+		}
+		double valor = (peso)/(Math.pow(altura,2));
+		String res = "La persona con altura" + altura + "metros y " + peso + "kilos de peso tiene un IMC "
+				+ "de " + valor +".";
+		return res;
 	}
 
 }
