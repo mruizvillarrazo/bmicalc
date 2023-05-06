@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 public class BMICalcTest {
 	
-	private BMICalcImpl calculadora = new BMICalcImpl();	
+	private BMICalculatorImpl calculadora = new BMICalculatorImpl();	
 
 	
 	
@@ -24,9 +24,9 @@ public class BMICalcTest {
 	@Test
 	@DisplayName("Tiempo que tardae el metodo bmi en finalizar su tarea")
 	public void tMetodo1() {
-		assertTimeout(Duration.ofMillis(1), () ->calculadora.bmi(56, 12));
-		assertTimeout(Duration.ofMillis(1), () ->calculadora.bmi(56, 12));
-		assertTimeout(Duration.ofMillis(1), () ->calculadora.bmi(56, 12));
+		assertTimeout(Duration.ofMillis(1), () ->calculadora.calculateBodyMassIndex(56, 12));
+		assertTimeout(Duration.ofMillis(1), () ->calculadora.calculateBodyMassIndex(56, 12));
+		assertTimeout(Duration.ofMillis(1), () ->calculadora.calculateBodyMassIndex(56, 12));
 
 
 	}
@@ -34,9 +34,9 @@ public class BMICalcTest {
 	@Test
 	@DisplayName("Tiempo que tardae el metodo categoria en finalizar su tarea")
 	public void tMetodo2() {
-		assertTimeout(Duration.ofMillis(1), () ->calculadora.category(23));
-		assertTimeout(Duration.ofMillis(1), () ->calculadora.category(33));
-		assertTimeout(Duration.ofMillis(1), () ->calculadora.category(18));
+		assertTimeout(Duration.ofMillis(1), () ->calculadora.getObesityCategory(23));
+		assertTimeout(Duration.ofMillis(1), () ->calculadora.getObesityCategory(33));
+		assertTimeout(Duration.ofMillis(1), () ->calculadora.getObesityCategory(18));
 
 
 	}
@@ -44,9 +44,9 @@ public class BMICalcTest {
 	@Test
 	@DisplayName("Tiempo que tardae el metodo bmi en finalizar su tarea")
 	public void tMetodo3() {
-		assertTimeout(Duration.ofMillis(1), () ->calculadora.abdominalObesity(70, 'M'));
-		assertTimeout(Duration.ofMillis(1), () ->calculadora.abdominalObesity(99, 'M'));
-		assertTimeout(Duration.ofMillis(1), () ->calculadora.abdominalObesity(56, 'F'));
+		assertTimeout(Duration.ofMillis(1), () ->calculadora.abdominalObesity(70, Gender.MALE));
+		assertTimeout(Duration.ofMillis(1), () ->calculadora.abdominalObesity(99, Gender.FEMALE));
+		assertTimeout(Duration.ofMillis(1), () ->calculadora.abdominalObesity(56, Gender.FEMALE));
 
 
 	}
@@ -62,7 +62,7 @@ public class BMICalcTest {
 	@DisplayName("En el BMI intentar dividir una masa entre 0")
     public void calculoIMB1() {
 		Exception exception = assertThrows(ArithmeticException.class, () ->
-        calculadora.bmi(2, 0));
+        calculadora.calculateBodyMassIndex(2, 0));
         assertEquals("No puede ser 0", exception.getMessage());
     }
 	
@@ -70,7 +70,7 @@ public class BMICalcTest {
 	@DisplayName("En el BMI insertar valores negativos")
 	public void calculoIMB2() {
 		Exception exception = assertThrows(IllegalArgumentException.class, () ->
-        calculadora.bmi(-5, -2));
+        calculadora.calculateBodyMassIndex(-5, -2));
         assertEquals("No pueden ser valores negativos", exception.getMessage());
     }
 	
@@ -80,26 +80,26 @@ public class BMICalcTest {
 	@Test
 	@DisplayName("Comprobar intervalos 1")
     public void intervalos1() {
-		assertEquals("UNDERWEIGHT", calculadora.category(5));
+		assertEquals(ObesityCategory.UNDERWEIGHT, calculadora.getObesityCategory(5));
     }
 	
 	@Test
 	@DisplayName("Comprobar intervalos 2")
     public void intervalos2() {
-		assertEquals("NORMAL", calculadora.category(21));
+		assertEquals(ObesityCategory.NORMAL, calculadora.getObesityCategory(21));
     }
 	
 	@Test
 	@DisplayName("Comprobar intervalos 3")
     public void intervalos3() {
-		assertEquals("OVERWEIGHT", calculadora.category(27));
+		assertEquals(ObesityCategory.OVERWEIGHT, calculadora.getObesityCategory(27));
     }
 	
 	
 	@Test
 	@DisplayName("Comprobar intervalos 4")
     public void intervalos4() {
-		assertEquals("OBESE", calculadora.category(35));
+		assertEquals(ObesityCategory.OBESE, calculadora.getObesityCategory(35));
     }
 	
 	//Para el método category nos aseguramos que saltan las excepciones con valores
@@ -109,9 +109,9 @@ public class BMICalcTest {
 	@DisplayName("Testeando valores poco realistas")
     public void categoriaException() {
 		Exception exception1 = assertThrows(IllegalArgumentException.class, () ->
-        calculadora.category(-4));
+        calculadora.getObesityCategory(-4));
 		Exception exception2 = assertThrows(IllegalArgumentException.class, () ->
-        calculadora.category(67));
+        calculadora.getObesityCategory(67));
 
         assertEquals("Valores imposibles", exception1.getMessage());
         assertEquals("Valores imposibles", exception2.getMessage());
@@ -125,10 +125,10 @@ public class BMICalcTest {
 	@DisplayName("Comprobando obesidad")
     public void abdObsesityTest1() {
 
-        Assertions.assertTrue(calculadora.abdominalObesity(99,'M'));
-        Assertions.assertTrue(calculadora.abdominalObesity(81,'F'));
-        Assertions.assertFalse(calculadora.abdominalObesity(77,'M'));
-        Assertions.assertFalse(calculadora.abdominalObesity(65,'M'));
+        Assertions.assertTrue(calculadora.abdominalObesity(99,Gender.MALE));
+        Assertions.assertTrue(calculadora.abdominalObesity(81,Gender.FEMALE));
+        Assertions.assertFalse(calculadora.abdominalObesity(77,Gender.MALE));
+        Assertions.assertFalse(calculadora.abdominalObesity(65,Gender.MALE));
 
 
 
