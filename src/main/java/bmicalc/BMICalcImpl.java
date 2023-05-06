@@ -2,7 +2,7 @@ package bmicalc;
 
 public class BMICalcImpl implements CardiovascularMetrics, MetabolicMetrics {
 
-	public double bmi(double mass, double height) {
+	public double calculateBodyMassIndex(double mass, double height) {
 		if(mass==0 || height==0 ) {
 			throw new ArithmeticException("No puede ser 0");
 		}else if( mass<0 || height <0) {
@@ -14,22 +14,19 @@ public class BMICalcImpl implements CardiovascularMetrics, MetabolicMetrics {
 
 	
 
-	public String category(double bmi) {
-		String cat="";
-		if (bmi<=0 || bmi>=50) {
-			throw new IllegalArgumentException("Valores imposibles");
-		}
-		
-		if(bmi<18.5) {
-			cat="UNDERWEIGHT";
-		}else if (bmi>18.5 && bmi<24.9) {
-			cat="NORMAL";
-		}else if(bmi>25.0 && bmi<=29.9) {
-			cat="OVERWEIGHT";
-		}else {
-			cat="OBESE";
-		}
-		return cat;
+	public ObesityCategory getObesityCategory(double bmi) {
+	    if (bmi <= 0 || bmi >= 50) {
+	        throw new IllegalArgumentException("Valores imposibles");
+	    }
+	    if (bmi < 18.5) {
+	        return ObesityCategory.UNDERWEIGHT;
+	    } else if (bmi < 24.9) {
+	        return ObesityCategory.NORMAL;
+	    } else if (bmi < 29.9) {
+	        return ObesityCategory.OVERWEIGHT;
+	    } else {
+	        return ObesityCategory.OBESE;
+	    }
 	}
 
 	public boolean abdominalObesity(double waistCircumference, char gender) {
