@@ -3,15 +3,17 @@ package gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import bmicalc.BMICalcImpl;
+import bmicalc.BMICalculatorImpl;
+import bmicalc.Gender;
+import bmicalc.ObesityCategory;
 
 public class BMIControlador implements ActionListener {
 
-	private BMICalcImpl bmi;
+	private BMICalculatorImpl bmi;
 	private BMIVista vista;
 	
 	
-	public BMIControlador(BMICalcImpl bmi, BMIVista vista) {
+	public BMIControlador(BMICalculatorImpl bmi, BMIVista vista) {
 		this.bmi = bmi;
 		this.vista = vista;
 	}
@@ -22,14 +24,14 @@ public class BMIControlador implements ActionListener {
 		if (command.equalsIgnoreCase("Calcular")) {
 			double altura = vista.getAltura();
 	        double peso = vista.getMasa();
-	        double cintura = vista.getCintura();
-	        char genero = vista.getGenero();
-	        bmi=new BMICalcImpl();
+	        double cintura=vista.getCintura();
+	        Gender genero = vista.getGenero();
+	        bmi=new BMICalculatorImpl();
 	        
 	        
 	        double bmi_calc ;
 
-	        String category_calc = null;
+	        ObesityCategory category_calc = null;
 
 	        boolean obesity_calc = false;
 	        
@@ -42,12 +44,12 @@ public class BMIControlador implements ActionListener {
 	        	
 	        	 
 	        	
-	        	bmi_calc = bmi.bmi(peso, altura);
-	        	category_calc = bmi.category(bmi_calc);
-	        	if(( category_calc=="OBESE" && genero=='M' && cintura<90) || (category_calc=="OBESE" && genero=='F' && cintura<80)) {
+	        	bmi_calc = bmi.calculateBodyMassIndex(peso, altura);
+	        	category_calc = bmi.getObesityCategory(bmi_calc);
+	        	if(( category_calc==ObesityCategory.OBESE && genero==Gender.MALE && cintura<90) || (category_calc==ObesityCategory.OBESE && genero==Gender.FEMALE && cintura<80)) {
 	        		throw new RuntimeException("No tienen sentido estos valores");
-	        	}else if((bmi_calc<=29.9 && category_calc!="OBESE" && cintura<=90 && genero=='M')
-	        			|| (bmi_calc<=29.9 && category_calc!="OBESE" && cintura<=80 && genero=='F')) {
+	        	}else if((bmi_calc<=29.9 && category_calc!=ObesityCategory.OBESE && cintura<=90 && genero==Gender.MALE)
+	        			|| (bmi_calc<=29.9 && category_calc!=ObesityCategory.OBESE  && cintura<=80 && genero==Gender.MALE)) {
 	        		throw new RuntimeException("No tiene sentido esta combinacion de valores");
 	        	}
 	        	obesity_calc = bmi.abdominalObesity(cintura,genero);
@@ -64,8 +66,8 @@ public class BMIControlador implements ActionListener {
 	            
 	            
 	        }else if(cintura==0) {
-	        	bmi_calc = bmi.bmi(peso, altura);
-	        	category_calc = bmi.category(bmi_calc);
+	        	bmi_calc = bmi.calculateBodyMassIndex(peso, altura);
+	        	category_calc = bmi.getObesityCategory(bmi_calc);
 	        	vista.setBMI(Double.toString(bmi_calc));
 	            vista.setCategory(category_calc);
 	        }else if(cintura!=0 && altura==0 && peso==0){

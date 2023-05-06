@@ -23,6 +23,9 @@ import javax.swing.JButton;
 import java.awt.CardLayout;
 import javax.swing.border.MatteBorder;
 
+import bmicalc.Gender;
+import bmicalc.ObesityCategory;
+
 
 public class BMIVista extends JFrame {
 
@@ -221,10 +224,10 @@ public class BMIVista extends JFrame {
 
 	}
 	
-	public char getGenero() {
-		char resultado='M';
+	public Gender getGenero() {
+		Gender resultado=Gender.MALE;
 		if(grupobotones.isSelected(rb_Female.getModel())) {
-			resultado='F';
+			resultado=Gender.FEMALE;
 		}
 		return resultado;
 	}
@@ -234,7 +237,15 @@ public class BMIVista extends JFrame {
 		output_BMI.setText(res);
 	}
 	
-	public void setCategory(String res) {
+	public void setCategory(ObesityCategory category_calc) {
+		String res="NORMAL";
+		if(category_calc==ObesityCategory.OBESE) {
+			res="OBESE";
+		}else if(category_calc==ObesityCategory.OVERWEIGHT) {
+			res="OVERWEIGHT";
+		}else if(category_calc==ObesityCategory.UNDERWEIGHT) {
+			res="UNDERWEIGHT";
+		}
 		category_output.setText(res);
 	}
 	
