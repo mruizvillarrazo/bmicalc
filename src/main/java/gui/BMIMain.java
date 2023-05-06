@@ -2,7 +2,7 @@ package gui;
 
 import java.awt.EventQueue;
 
-import bmicalc.BMICalcImpl;
+import bmicalc.BMICalculatorImpl;
 
 
 public class BMIMain {
@@ -11,7 +11,7 @@ public class BMIMain {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BMICalcImpl model = new BMICalcImpl();
+					BMICalculatorImpl model = new BMICalculatorImpl();
 					BMIVista vista = new BMIVista();
 					vista.setVisible(true);;
 					BMIControlador controller = new BMIControlador(model, vista);

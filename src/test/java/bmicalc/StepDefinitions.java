@@ -13,7 +13,7 @@ public class StepDefinitions {
 	private double masa;
 	private double altura;
 	private Double resultadoBMI;
-	private BMICalcImpl bmi;
+	private BMICalculatorImpl bmi;
 	private boolean hayExcepcion;
 	
 	@Before
@@ -37,8 +37,8 @@ public class StepDefinitions {
 	@When("calculo su IMC")
 	public void calculo_su_imc() {
 	    // Write code here that turns the phrase above into concrete actions
-		bmi=new BMICalcImpl();
-	    resultadoBMI=bmi.bmi(masa, altura);
+		bmi=new BMICalculatorImpl();
+	    resultadoBMI=bmi.calculateBodyMassIndex(masa, altura);
 	}
 	
 	
@@ -56,8 +56,8 @@ public class StepDefinitions {
 	@When("intento calcular su IMC")
 	public void intento_calcular_su_imc() {
 	    try {
-	    	bmi=new BMICalcImpl();
-		    resultadoBMI=bmi.bmi(masa, altura);
+	    	bmi=new BMICalculatorImpl();
+		    resultadoBMI=bmi.calculateBodyMassIndex(masa, altura);
 	    }catch(ArithmeticException e) {
 	    	hayExcepcion=true;
 	    }
